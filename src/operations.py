@@ -113,3 +113,104 @@ def divide(a: float, b: float) -> float:
         raise ValueError("Cannot divide by zero")
     return a / b
 
+
+
+def power(base: float, exponent: float) -> float:
+    """
+    Raise base to the power of exponent.
+
+    Args:
+        base: The base number
+        exponent: The exponent
+
+    Returns:
+        base raised to the power of exponent (base ^ exponent)
+
+    Examples:
+        >>> power(2.0, 8.0)
+        256.0
+        >>> power(10.0, 3.0)
+        1000.0
+        >>> power(5.0, 0.0)
+        1.0
+        >>> power(0.0, 0.0)
+        1.0
+    """
+    return math.pow(base, exponent)
+
+
+def square_root(number: float) -> float:
+    """
+    Calculate the square root of a number.
+
+    Args:
+        number: The number to find square root of
+
+    Returns:
+        Square root of the number
+
+    Raises:
+        ValueError: If number is negative
+
+    Examples:
+        >>> square_root(16.0)
+        4.0
+        >>> square_root(0.0)
+        0.0
+        >>> square_root(2.0)
+        1.4142135623730951
+        >>> square_root(-9.0)
+        ValueError: Square root requires a non-negative number
+    """
+    if number < 0:
+        raise ValueError("Square root requires a non-negative number")
+    return math.sqrt(number)
+
+
+def percentage(percent: float, of_value: float) -> float:
+    """
+    Calculate percentage of a value.
+
+    Args:
+        percent: The percentage (e.g., 20 for 20%)
+        of_value: The value to calculate percentage of
+
+    Returns:
+        The calculated percentage value
+
+    Examples:
+        >>> percentage(20.0, 50.0)
+        10.0
+        >>> percentage(50.0, 100.0)
+        50.0
+        >>> percentage(100.0, 25.0)
+        25.0
+    """
+    return (percent / 100.0) * of_value
+
+
+def modulus(a: float, b: float) -> float:
+    """
+    Calculate remainder of division (a modulo b).
+
+    Args:
+        a: Dividend
+        b: Divisor
+
+    Returns:
+        Remainder of a / b
+
+    Raises:
+        ValueError: If b is zero
+
+    Examples:
+        >>> modulus(17.0, 5.0)
+        2.0
+        >>> modulus(10.0, 3.0)
+        1.0
+        >>> modulus(8.0, 4.0)
+        0.0
+    """
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a % b

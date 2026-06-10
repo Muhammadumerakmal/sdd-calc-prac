@@ -84,19 +84,19 @@
 
 ### Tests for User Story 2 ⚠️
 
-- [ ] T019 [P] [US2] Create test file tests/unit/test_validators.py with imports and test class
-- [ ] T020 [P] [US2] Write test_validate_numeric_input_valid_integer, test_valid_decimal, test_valid_negative in tests/unit/test_validators.py
-- [ ] T021 [P] [US2] Write test_validate_numeric_input_invalid_letters, test_invalid_empty, test_invalid_special_chars in tests/unit/test_validators.py
-- [ ] T022 [P] [US2] Write test_validate_menu_choice_valid_range, test_invalid_out_of_range, test_invalid_non_numeric in tests/unit/test_validators.py
-- [ ] T023 [P] [US2] Write test_validate_non_negative_valid, test_negative_rejected in tests/unit/test_validators.py
+- [x] T019 [P] [US2] Create test file tests/unit/test_validators.py with imports and test class
+- [x] T020 [P] [US2] Write test_validate_numeric_input_valid_integer, test_valid_decimal, test_valid_negative in tests/unit/test_validators.py
+- [x] T021 [P] [US2] Write test_validate_numeric_input_invalid_letters, test_invalid_empty, test_invalid_special_chars in tests/unit/test_validators.py
+- [x] T022 [P] [US2] Write test_validate_menu_choice_valid_range, test_invalid_out_of_range, test_invalid_non_numeric in tests/unit/test_validators.py
+- [x] T023 [P] [US2] Write test_validate_non_negative_valid, test_negative_rejected in tests/unit/test_validators.py
 
 ### Implementation for User Story 2
 
-- [ ] T024 [P] [US2] Implement validate_numeric_input(user_input: str) -> Tuple[bool, str] in src/validators.py
-- [ ] T025 [P] [US2] Implement validate_menu_choice(user_input: str) -> Tuple[bool, str] in src/validators.py
-- [ ] T026 [P] [US2] Implement validate_non_negative(number: float) -> Tuple[bool, str] in src/validators.py
-- [ ] T027 [US2] Add error message constants at top of src/validators.py (ERROR_INVALID_NUMBER, ERROR_EMPTY_INPUT, ERROR_INVALID_MENU, etc.)
-- [ ] T028 [US2] Run pytest tests/unit/test_validators.py and verify all US2 tests pass
+- [x] T024 [P] [US2] Implement validate_numeric_input(user_input: str) -> Tuple[bool, str] in src/validators.py
+- [x] T025 [P] [US2] Implement validate_menu_choice(user_input: str) -> Tuple[bool, str] in src/validators.py
+- [x] T026 [P] [US2] Implement validate_non_negative(number: float) -> Tuple[bool, str] in src/validators.py
+- [x] T027 [US2] Add error message constants at top of src/validators.py (ERROR_INVALID_NUMBER, ERROR_EMPTY_INPUT, ERROR_INVALID_MENU, etc.)
+- [x] T028 [US2] Run pytest tests/unit/test_validators.py and verify all US2 tests pass
 
 **Checkpoint**: At this point, User Stories 1 AND 2 both work - calculator has operations and validation
 

@@ -6,7 +6,7 @@ Each test function tests one specific scenario with descriptive names.
 """
 
 import pytest
-from src.operations import add, subtract, multiply, divide
+from src.operations import add, subtract, multiply, divide, power, square_root, percentage, modulus
 
 
 class TestAddition:
@@ -90,3 +90,75 @@ class TestDivision:
             divide(10.0, 0.0)
         with pytest.raises(ValueError, match="Cannot divide by zero"):
             divide(0.0, 0.0)
+
+
+class TestPower:
+    """Test cases for the power function."""
+
+    def test_power_positive_exponent(self):
+        """Test power with positive exponent."""
+        assert power(2.0, 8.0) == 256.0
+        assert power(10.0, 3.0) == 1000.0
+        assert power(5.0, 2.0) == 25.0
+
+    def test_power_zero_exponent(self):
+        """Test power with zero exponent."""
+        assert power(5.0, 0.0) == 1.0
+        assert power(100.0, 0.0) == 1.0
+        assert power(0.0, 0.0) == 1.0
+
+    def test_power_negative_exponent(self):
+        """Test power with negative exponent."""
+        assert power(2.0, -1.0) == 0.5
+        assert power(10.0, -2.0) == 0.01
+
+
+class TestSquareRoot:
+    """Test cases for the square_root function."""
+
+    def test_square_root_positive(self):
+        """Test square root of positive numbers."""
+        assert square_root(16.0) == 4.0
+        assert square_root(25.0) == 5.0
+        assert square_root(2.0) == pytest.approx(1.4142135623730951)
+
+    def test_square_root_zero(self):
+        """Test square root of zero."""
+        assert square_root(0.0) == 0.0
+
+    def test_square_root_negative_raises_error(self):
+        """Test that square root of negative raises ValueError."""
+        with pytest.raises(ValueError, match="non-negative"):
+            square_root(-9.0)
+        with pytest.raises(ValueError, match="non-negative"):
+            square_root(-1.0)
+
+
+class TestPercentage:
+    """Test cases for the percentage function."""
+
+    def test_percentage_basic(self):
+        """Test basic percentage calculations."""
+        assert percentage(20.0, 50.0) == 10.0
+        assert percentage(50.0, 100.0) == 50.0
+        assert percentage(100.0, 25.0) == 25.0
+
+    def test_percentage_zero(self):
+        """Test percentage with zero."""
+        assert percentage(0.0, 100.0) == 0.0
+        assert percentage(50.0, 0.0) == 0.0
+
+
+class TestModulus:
+    """Test cases for the modulus function."""
+
+    def test_modulus_basic(self):
+        """Test basic modulus operations."""
+        assert modulus(17.0, 5.0) == 2.0
+        assert modulus(10.0, 3.0) == 1.0
+        assert modulus(8.0, 4.0) == 0.0
+
+    def test_modulus_zero_divisor_raises_error(self):
+        """Test that modulus by zero raises ValueError."""
+        with pytest.raises(ValueError, match="Cannot divide by zero"):
+            modulus(10.0, 0.0)
