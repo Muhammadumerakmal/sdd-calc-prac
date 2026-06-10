@@ -112,9 +112,128 @@ README.md               # User documentation and quickstart
 
 ## Complexity Tracking
 
-> **Fill ONLY if Constitution Check has violations that must be justified**
+> **No constitutional violations detected. This section intentionally left empty.**
 
-| Violation | Why Needed | Simpler Alternative Rejected Because |
-|-----------|------------|-------------------------------------|
-| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+All architectural decisions align with constitutional principles:
+- Simple flat module structure (3 files)
+- Standard library only (no external dependencies beyond testing tools)
+- Menu-based input (simpler than expression parsing)
+- No abstraction layers beyond function-level modularity
+
+No complexity justification required.
+
+## Phase 0: Research & Technical Decisions
+
+**Status**: ✅ Complete
+
+**Artifacts Created**:
+- `research.md` - Technical decisions and rationale for all implementation choices
+
+**Key Decisions**:
+1. **Python 3.8+** - Balance of modern features and broad compatibility
+2. **pytest with pytest-cov** - Industry standard testing framework
+3. **Menu-based input** - Eliminates eval() security risk, simpler than expression parsing
+4. **Float precision** - Python float sufficient, no arbitrary precision needed
+5. **Three-module architecture** - operations.py, validators.py, calculator.py with clear separation
+
+**Research Findings**:
+- All technical unknowns resolved
+- No external dependencies required beyond testing tools
+- Menu-based approach satisfies all security and simplicity requirements
+- Standard library math module sufficient for all operations
+
+**Constitutional Re-check**: ✅ All principles maintained
+
+---
+
+## Phase 1: Design & Contracts
+
+**Status**: ✅ Complete
+
+**Artifacts Created**:
+1. `data-model.md` - Entity definitions, validation rules, error messages
+2. `contracts/module-contracts.md` - Function signatures and behavioral contracts
+3. `quickstart.md` - User guide and operational reference
+
+**Design Highlights**:
+
+### Data Model
+- **Operation**: Mathematical operation with type, operands, result/error
+- **OperationType**: Enum of 8 supported operations
+- **ValidationResult**: Validation outcome with error messages
+- **MenuChoice**: User menu selection mapping
+
+### Module Contracts
+- **operations.py**: 8 pure functions (add, subtract, multiply, divide, power, square_root, percentage, modulus)
+- **validators.py**: 3 validation functions returning (bool, str) tuples
+- **calculator.py**: User interaction, menu display, operation execution, main loop
+
+### Error Handling Strategy
+- Validators: Return (is_valid, error_message) tuples
+- Operations: Raise ValueError on invalid preconditions
+- Calculator: Catch exceptions, display errors, continue session
+
+**Constitutional Re-check Post-Design**: ✅ PASS
+
+All design decisions validated against constitution:
+- ✅ Correctness: Pure functions, comprehensive validation
+- ✅ Simplicity: Minimal abstractions, standard library only
+- ✅ Readability: Clear module boundaries, descriptive names
+- ✅ Single Responsibility: Each module has one clear purpose
+- ✅ Maintainability: Operations easily extensible
+- ✅ Security: No eval(), explicit input validation
+- ✅ Testing: Clear contracts enable comprehensive test coverage
+
+---
+
+## Implementation Readiness
+
+**Status**: ✅ Ready for Phase 2 (Task Breakdown)
+
+**Next Steps**:
+1. Run `/sp.tasks` to generate detailed implementation tasks
+2. Begin implementation following constitutional TDD requirements
+3. Verify 90%+ test coverage before marking complete
+
+**Estimated Implementation**:
+- Lines of Code: ~500 (excluding tests)
+- Test Cases: ~45 (normal, edge, error scenarios)
+- Modules: 3 source files + 3 test files
+- Timeline: Ready for immediate development
+
+**Success Criteria Check**:
+- ✅ Architecture designed
+- ✅ All modules specified with clear contracts
+- ✅ Error handling strategy defined
+- ✅ Test strategy established
+- ✅ Documentation structure complete
+- ✅ No constitutional violations
+- ✅ No unresolved technical unknowns
+
+---
+
+## Appendix: File Manifest
+
+### Planning Documentation (specs/001-calculator/)
+- `spec.md` - Feature specification with user stories and requirements
+- `plan.md` - This file, architectural implementation plan
+- `research.md` - Technical decisions and research findings
+- `data-model.md` - Entity definitions and data structures
+- `quickstart.md` - User guide and quick reference
+- `contracts/module-contracts.md` - Function signatures and contracts
+
+### Implementation (To Be Created)
+- `src/operations.py` - Mathematical operations
+- `src/validators.py` - Input validation
+- `src/calculator.py` - Main application
+- `tests/unit/test_operations.py` - Operation tests
+- `tests/unit/test_validators.py` - Validation tests
+- `tests/integration/test_calculator.py` - Integration tests
+- `requirements.txt` - Dependencies
+- `README.md` - Project documentation
+
+---
+
+**Plan Complete**: 2026-06-10  
+**Constitutional Compliance**: ✅ Verified  
+**Ready for Implementation**: ✅ Yes
