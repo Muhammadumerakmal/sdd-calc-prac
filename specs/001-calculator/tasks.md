@@ -110,18 +110,18 @@
 
 ### Tests for User Story 3 ⚠️
 
-- [ ] T029 [P] [US3] Write test_power_positive_exponent, test_power_zero_exponent, test_power_negative_exponent in tests/unit/test_operations.py
-- [ ] T030 [P] [US3] Write test_square_root_positive, test_square_root_zero, test_square_root_negative_raises_error in tests/unit/test_operations.py
-- [ ] T031 [P] [US3] Write test_percentage_basic, test_percentage_zero in tests/unit/test_operations.py
-- [ ] T032 [P] [US3] Write test_modulus_basic, test_modulus_zero_divisor_raises_error in tests/unit/test_operations.py
+- [x] T029 [P] [US3] Write test_power_positive_exponent, test_power_zero_exponent, test_power_negative_exponent in tests/unit/test_operations.py
+- [x] T030 [P] [US3] Write test_square_root_positive, test_square_root_zero, test_square_root_negative_raises_error in tests/unit/test_operations.py
+- [x] T031 [P] [US3] Write test_percentage_basic, test_percentage_zero in tests/unit/test_operations.py
+- [x] T032 [P] [US3] Write test_modulus_basic, test_modulus_zero_divisor_raises_error in tests/unit/test_operations.py
 
 ### Implementation for User Story 3
 
-- [ ] T033 [P] [US3] Implement power(base: float, exponent: float) -> float in src/operations.py using math.pow
-- [ ] T034 [P] [US3] Implement square_root(number: float) -> float in src/operations.py with negative check raising ValueError
-- [ ] T035 [P] [US3] Implement percentage(percent: float, of_value: float) -> float in src/operations.py
-- [ ] T036 [P] [US3] Implement modulus(a: float, b: float) -> float in src/operations.py with zero divisor check
-- [ ] T037 [US3] Run pytest tests/unit/test_operations.py and verify all US3 tests pass
+- [x] T033 [P] [US3] Implement power(base: float, exponent: float) -> float in src/operations.py using math.pow
+- [x] T034 [P] [US3] Implement square_root(number: float) -> float in src/operations.py with negative check raising ValueError
+- [x] T035 [P] [US3] Implement percentage(percent: float, of_value: float) -> float in src/operations.py
+- [x] T036 [P] [US3] Implement modulus(a: float, b: float) -> float in src/operations.py with zero divisor check
+- [x] T037 [US3] Run pytest tests/unit/test_operations.py and verify all US3 tests pass
 
 **Checkpoint**: All mathematical operations (core + extended) are now implemented and tested
 
