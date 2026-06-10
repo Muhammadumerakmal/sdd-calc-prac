@@ -1,55 +1,317 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: [INITIAL] → 1.0.0
+- Modified principles: N/A (initial creation)
+- Added sections: All 10 Articles + Governance
+- Removed sections: N/A
+- Templates requiring updates:
+  ✅ plan-template.md (Constitution Check section verified)
+  ✅ spec-template.md (Requirements alignment verified)
+  ✅ tasks-template.md (Task categorization aligned with testing/quality principles)
+- Follow-up TODOs: None
+-->
+
+# Calculator Project Constitution
+
+## Purpose
+
+This constitution defines the mandatory principles, standards, and requirements governing the development of the Calculator project using Spec-Driven Development (SDD).
+
+All specifications, designs, tasks, code implementations, and tests MUST comply with this constitution.
+
+---
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Mission
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+The Calculator system shall provide accurate, reliable, maintainable, and secure mathematical calculations for users.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**Primary goals** (in priority order):
+1. Accuracy
+2. Reliability
+3. Simplicity
+4. Maintainability
+5. Testability
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: Mathematical correctness is non-negotiable; all other goals support delivering correct calculations in a sustainable manner.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+---
 
-### [PRINCIPLE_6_NAME]
+### II. Correctness First
 
+Mathematical correctness takes precedence over development speed.
 
-[PRINCIPLE__DESCRIPTION]
+**Requirements**:
+- All calculations MUST produce correct results
+- Edge cases MUST be handled explicitly
+- Features MUST include validation tests before deployment
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: Calculator errors undermine user trust and can have serious consequences. Speed without correctness delivers negative value.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+---
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### III. Simplicity
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+The simplest solution that satisfies requirements MUST be preferred.
+
+**Requirements**:
+- Avoid unnecessary complexity
+- Avoid premature optimization
+- Avoid over-engineering
+- Choose clarity over cleverness
+
+**Rationale**: Simple code is easier to verify for correctness, maintain, and extend. Complexity is a liability that compounds over time.
+
+---
+
+### IV. Readability
+
+Code MUST be understandable by new developers.
+
+**Requirements**:
+- Use meaningful, descriptive names
+- Follow PEP 8 style guidelines
+- Keep functions concise and focused
+- Prefer clarity over cleverness
+
+**Rationale**: Code is read far more often than written. Readability directly impacts maintainability and reduces defect rates.
+
+---
+
+### V. Single Responsibility
+
+Each module, class, and function MUST have one clear responsibility.
+
+**Separation of concerns** (MUST remain separate):
+- Input handling
+- Calculation logic
+- Output formatting
+- Error handling
+
+**Rationale**: Single responsibility enables independent testing, reduces coupling, and makes changes safer and more predictable.
+
+---
+
+### VI. Maintainability
+
+The system MUST be easy to extend without modifying existing code.
+
+**Requirements**:
+- New operations MUST require minimal modification of existing code
+- Shared logic MUST NOT be duplicated
+- Code MUST be modular
+- Extension points MUST be clearly defined
+
+**Rationale**: Calculator features will grow over time. Architecture must support extension without destabilizing proven functionality.
+
+---
+
+## Functional Requirements
+
+### VII. Supported Operations
+
+The calculator MUST support the following operations:
+
+**Core Operations** (MUST be implemented):
+- Addition
+- Subtraction
+- Multiplication
+- Division
+
+**Extended Operations** (MUST be supported):
+- Power (exponentiation)
+- Square Root
+- Percentage
+- Modulus
+
+**Future Expansion Readiness**:
+
+The architecture MUST allow support for the following without major redesign:
+- Scientific calculations
+- Trigonometric functions
+- Logarithmic functions
+- Memory operations
+
+**Rationale**: Core and extended operations meet immediate user needs. Architecture must anticipate expansion to avoid costly rewrites.
+
+---
+
+## Quality Standards
+
+### VIII. Reliability Standards
+
+**Requirements**:
+- Valid inputs MUST always return correct results
+- Invalid inputs MUST NOT crash the application
+- Error messages MUST be clear and actionable
+
+**Error handling** (MUST be graceful):
+- Division by zero
+- Invalid number formats
+- Unsupported operations
+- Out-of-range values
+
+**Rationale**: Reliability builds user trust. Graceful error handling prevents data loss and maintains system stability.
+
+---
+
+### IX. Security Standards
+
+The calculator MUST never execute arbitrary user code.
+
+**Forbidden practices**:
+- `eval()`
+- `exec()`
+- Dynamic code execution from user input
+
+**Requirements**:
+- Validate all user input before processing
+- Sanitize external input
+- Reject malformed expressions safely
+- Use explicit parsing, never code evaluation
+
+**Rationale**: Code execution vulnerabilities are critical security risks. Calculators are common attack vectors due to expression parsing.
+
+---
+
+### X. Testing Standards
+
+Every feature MUST include tests before being marked complete.
+
+**Minimum coverage requirements**:
+- Normal cases (happy path)
+- Edge cases (boundaries)
+- Error cases (invalid input)
+
+**Example test coverage**:
+- `2 + 3 = 5` (normal)
+- `10 / 2 = 5` (normal)
+- `10 / 0 → Error` (error)
+- `sqrt(0) = 0` (edge)
+- `sqrt(-1) → Error` (error)
+
+**Coverage target**: 90% or greater code coverage
+
+**Rationale**: Untested code is untrustworthy code. Mathematical operations demand comprehensive test coverage to ensure correctness.
+
+---
+
+## Code Quality Standards
+
+### XI. Code Style and Structure
+
+**Requirements**:
+- Follow PEP 8 style guidelines
+- Use type hints where practical
+- Keep functions focused and concise
+- Avoid duplicated code (DRY principle)
+
+**Naming standards**:
+
+✅ **Good**:
+- `add_numbers()`
+- `divide_numbers()`
+- `calculate_result()`
+
+❌ **Bad**:
+- `x()`
+- `abc()`
+- `doStuff()`
+
+**Rationale**: Consistent style reduces cognitive load. Good names make code self-documenting and reduce the need for comments.
+
+---
+
+### XII. Documentation Standards
+
+Every public function MUST contain documentation specifying:
+- Purpose (what it does)
+- Parameters (inputs and types)
+- Return value (output and type)
+- Possible exceptions (error conditions)
+
+**Additional requirements**:
+- Major features MUST be documented in user-facing docs
+- README MUST remain updated with current capabilities
+- Breaking changes MUST be documented in CHANGELOG
+
+**Rationale**: Documentation enables effective use and maintenance. Undocumented code becomes technical debt rapidly.
+
+---
+
+### XIII. Project Structure
+
+**Recommended structure**:
+
+```
+calculator/
+├── calculator.py        # Main entry point
+├── operations.py        # Mathematical operations
+├── validators.py        # Input validation
+├── tests/
+│   ├── test_operations.py
+│   └── test_validators.py
+├── requirements.txt     # Dependencies
+├── README.md           # User documentation
+└── CONSTITUTION.md     # This file
+```
+
+**Rationale**: Clear structure enables quick navigation and sets expectations for where new code belongs.
+
+---
+
+### XIV. Definition of Done
+
+A feature is considered complete ONLY when ALL criteria are met:
+
+1. ✅ Specification exists
+2. ✅ Design is approved
+3. ✅ Code is implemented
+4. ✅ Tests are written
+5. ✅ Tests pass
+6. ✅ Documentation is updated
+7. ✅ No critical defects remain
+
+**Rationale**: "Done" must have a clear, verifiable definition to prevent accumulation of incomplete work.
+
+---
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Amendment Process
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+This constitution may be amended ONLY when a proposed change:
+
+1. Improves maintainability, OR
+2. Improves reliability, OR
+3. Improves security, OR
+4. Improves developer productivity,
+
+**AND** does NOT compromise correctness.
+
+**Amendment procedure**:
+- Document the proposed change and rationale
+- Create an ADR (Architecture Decision Record) via `/sp.adr`
+- Obtain approval from project maintainers
+- Update constitution version according to semantic versioning
+- Update all dependent artifacts (specs, plans, tasks)
+
+### Compliance
+
+- All PRs and code reviews MUST verify compliance with this constitution
+- Complexity MUST be justified against constitutional principles
+- Constitutional violations require explicit documentation and approval
+- This constitution supersedes all other development practices
+
+### Priority Hierarchy
+
+The project MUST prioritize in this order:
+
+**Correctness > Reliability > Maintainability > Performance > Convenience**
+
+No implementation decision may violate this priority order.
+
+---
+
+**Version**: 1.0.0 | **Ratified**: 2026-06-10 | **Last Amended**: 2026-06-10
