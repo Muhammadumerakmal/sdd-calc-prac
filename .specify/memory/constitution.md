@@ -1,14 +1,15 @@
 <!--
 Sync Impact Report:
-- Version change: [INITIAL] → 1.0.0
-- Modified principles: N/A (initial creation)
-- Added sections: All 10 Articles + Governance
+- Version change: 1.0.0 → 1.1.0
+- Modified principles: Added Article XI (Dependency Policy) - allows Rich library for UI enhancement
+- Added sections: Article XI (Dependency Policy)
 - Removed sections: N/A
 - Templates requiring updates:
-  ✅ plan-template.md (Constitution Check section verified)
-  ✅ spec-template.md (Requirements alignment verified)
-  ✅ tasks-template.md (Task categorization aligned with testing/quality principles)
-- Follow-up TODOs: None
+  ⚠️ plan-template.md (Update Technical Context to reflect dependency policy)
+  ⚠️ spec-template.md (Update assumptions about dependencies)
+  ✅ tasks-template.md (No changes required)
+- Follow-up TODOs: Update plan.md for 001-calculator feature to reflect Rich dependency
+- Related ADR: ADR-001 (Allow Rich Library for UI Enhancement)
 -->
 
 # Calculator Project Constitution
@@ -197,6 +198,48 @@ Every feature MUST include tests before being marked complete.
 
 ---
 
+### XI. Dependency Policy
+
+The calculator MUST maintain a minimal dependency footprint while allowing selective dependencies that provide significant value.
+
+**Core Principle**: Business logic MUST remain dependency-free. UI enhancements MAY use approved external libraries.
+
+**Dependency Categories**:
+
+1. **Business Logic Dependencies** (FORBIDDEN):
+   - Mathematical operations MUST use Python standard library only
+   - Validation logic MUST use Python standard library only
+   - Core calculator logic MUST NOT depend on external packages
+
+2. **UI Enhancement Dependencies** (SELECTIVELY ALLOWED):
+   - Terminal formatting and presentation MAY use approved libraries
+   - Each UI dependency REQUIRES an ADR justifying its inclusion
+   - UI dependencies MUST NOT affect core calculation correctness
+
+3. **Development Dependencies** (ALLOWED):
+   - Testing frameworks (pytest, pytest-cov)
+   - Code quality tools (linters, formatters)
+   - Documentation generators
+
+**Approved Dependencies**:
+- **Rich** (v13.x): Terminal UI enhancement - formatting, colors, tables, panels
+  - Justification: See ADR-001
+  - Scope: Presentation layer only
+  - Status: Approved 2026-06-12
+
+**Approval Criteria for New Dependencies**:
+A new runtime dependency may be approved ONLY if:
+1. It provides significant user value (not developer convenience)
+2. It is well-maintained (active development, responsive maintainers)
+3. It has proven stability (mature API, large user base)
+4. It is scoped to presentation/interaction layer (not business logic)
+5. It has minimal transitive dependencies
+6. An ADR documents the decision
+
+**Rationale**: Zero dependencies was the initial goal to maximize simplicity and deployment ease. However, modern CLI users expect rich terminal interfaces with colors and formatting. By restricting dependencies to the presentation layer only and requiring ADRs, we maintain architectural integrity while improving user experience. Business logic remains pure, testable, and portable.
+
+---
+
 ## Code Quality Standards
 
 ### XI. Code Style and Structure
@@ -314,4 +357,8 @@ No implementation decision may violate this priority order.
 
 ---
 
-**Version**: 1.0.0 | **Ratified**: 2026-06-10 | **Last Amended**: 2026-06-10
+**Version**: 1.1.0 | **Ratified**: 2026-06-10 | **Last Amended**: 2026-06-12
+
+**Amendment History**:
+- **1.1.0** (2026-06-12): Added Article XI (Dependency Policy) - allows Rich library for UI enhancement per ADR-001
+- **1.0.0** (2026-06-10): Initial constitution ratified
