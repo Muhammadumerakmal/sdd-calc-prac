@@ -14,14 +14,17 @@ Develop a command-line calculator application in Python that performs accurate m
 ## Technical Context
 
 **Language/Version**: Python 3.8+ (widespread availability, mature standard library)  
-**Primary Dependencies**: Python standard library only (math, sys, typing for type hints)  
+**Primary Dependencies**: 
+  - Business Logic: Python standard library only (math, sys, typing for type hints)
+  - UI Enhancement: Rich (v13.x) for terminal formatting and colors
 **Storage**: N/A (stateless calculations, no persistence required)  
 **Testing**: pytest with pytest-cov for coverage reporting  
 **Target Platform**: Cross-platform command-line (Windows, macOS, Linux)  
 **Project Type**: Single project  
 **Performance Goals**: <100ms calculation response time (excluding user input time), <5 seconds total per calculation including input  
-**Constraints**: Zero external dependencies beyond standard library, menu-based input only (no expression parsing), Python float precision sufficient (no arbitrary precision needed)  
+**Constraints**: Business logic remains dependency-free per constitution; menu-based input only (no expression parsing); Python float precision sufficient (no arbitrary precision needed)  
 **Scale/Scope**: Single-user local execution, 8 operations (4 core + 4 extended), ~500 lines of code estimated, 100+ consecutive calculations per session without degradation
+**Dependency Policy**: Per Constitution v1.1.0 Article XI and ADR-001, Rich library approved for presentation layer enhancement
 
 ## Constitution Check
 

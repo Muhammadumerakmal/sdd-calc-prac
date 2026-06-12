@@ -134,7 +134,9 @@ As a user performing multiple calculations, I want to perform consecutive calcul
 
 - Users have basic command-line familiarity and can enter text input
 - Users understand fundamental mathematical operation symbols and terminology
-- Target platform is Python 3.6+ with standard library (no external calculation libraries needed)
+- Target platform is Python 3.8+ with pip for dependency installation
+- Core calculations use Python standard library only (no external calculation libraries needed)
+- UI enhancement libraries (Rich) are acceptable for improved terminal presentation per ADR-001
 - Command-line interface is acceptable for v1.0 (GUI explicitly out of scope)
 - Single-user, local execution (no network, no multi-user considerations)
 - Calculations do not require arbitrary precision (Python float precision is sufficient)
