@@ -135,21 +135,21 @@
 
 ### Tests for User Story 4 ⚠️
 
-- [ ] T038 [US4] Create test file tests/integration/test_calculator.py with imports for integration testing
-- [ ] T039 [US4] Write integration test for complete calculation workflow (menu → input → operation → result → menu) in tests/integration/test_calculator.py
-- [ ] T040 [US4] Write integration test for multiple consecutive calculations in tests/integration/test_calculator.py
-- [ ] T041 [US4] Write integration test for clean exit via menu option in tests/integration/test_calculator.py
+- [x] T038 [US4] Create test file tests/integration/test_calculator.py with imports for integration testing
+- [x] T039 [US4] Write integration test for complete calculation workflow (menu → input → operation → result → menu) in tests/integration/test_calculator.py
+- [x] T040 [US4] Write integration test for multiple consecutive calculations in tests/integration/test_calculator.py
+- [x] T041 [US4] Write integration test for clean exit via menu option in tests/integration/test_calculator.py
 
 ### Implementation for User Story 4
 
-- [ ] T042 [US4] Implement display_menu() -> None in src/calculator.py that prints menu with options 1-8 and 0 for exit
-- [ ] T043 [US4] Implement get_menu_choice() -> int in src/calculator.py using validate_menu_choice from validators
-- [ ] T044 [US4] Implement get_numeric_input(prompt: str) -> float in src/calculator.py with validation loop
-- [ ] T045 [US4] Implement execute_operation(choice: int) -> None in src/calculator.py with if/elif dispatch to operations
-- [ ] T046 [US4] Implement main_loop() -> None in src/calculator.py with while True loop, menu display, choice handling
-- [ ] T047 [US4] Implement main() -> None in src/calculator.py with welcome message, main_loop call, KeyboardInterrupt handler
-- [ ] T048 [US4] Update if __name__ == "__main__" block in src/calculator.py to call main()
-- [ ] T049 [US4] Run pytest tests/integration/test_calculator.py and verify all US4 integration tests pass
+- [x] T042 [US4] Implement display_menu() -> None in src/calculator.py that prints menu with options 1-8 and 0 for exit
+- [x] T043 [US4] Implement get_menu_choice() -> int in src/calculator.py using validate_menu_choice from validators
+- [x] T044 [US4] Implement get_numeric_input(prompt: str) -> float in src/calculator.py with validation loop
+- [x] T045 [US4] Implement execute_operation(choice: int) -> None in src/calculator.py with if/elif dispatch to operations
+- [x] T046 [US4] Implement main_loop() -> None in src/calculator.py with while True loop, menu display, choice handling
+- [x] T047 [US4] Implement main() -> None in src/calculator.py with welcome message, main_loop call, KeyboardInterrupt handler
+- [x] T048 [US4] Update if __name__ == "__main__" block in src/calculator.py to call main()
+- [x] T049 [US4] Run pytest tests/integration/test_calculator.py and verify all US4 integration tests pass
 
 **Checkpoint**: All user stories are now independently functional - complete calculator application
 

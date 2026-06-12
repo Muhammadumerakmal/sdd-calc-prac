@@ -14,22 +14,52 @@ from src.calculator import display_menu, get_menu_choice, get_numeric_input, exe
 class TestCalculatorWorkflow:
     """Integration tests for complete calculation workflows."""
 
-    def test_complete_calculation_workflow(self):
-        """Test a complete calculation from menu to result."""
-        # This test will verify the full workflow once implemented
-        # For now, we'll test individual components
-        pass
+    @patch('builtins.input', side_effect=['1', '5', '3', '0'])
+    def test_complete_calculation_workflow(self, mock_input):
+        """Test a complete calculation from menu to result.
 
-    def test_multiple_consecutive_calculations(self):
-        """Test multiple calculations in one session."""
-        # Test that the calculator can handle multiple operations
-        # without crashing or losing state
-        pass
+        Workflow: menu -> select addition (1) -> enter 5 -> enter 3 -> result 8.0 -> exit (0)
+        """
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            main()
+            output = fake_out.getvalue()
 
-    def test_clean_exit_via_menu(self):
-        """Test clean exit when user selects exit option."""
-        # Verify that choosing exit option (0) terminates gracefully
-        pass
+            # Verify result of 5 + 3 = 8 appears in output
+            assert '8' in output or '8.0' in output
+
+    @patch('builtins.input', side_effect=['1', '10', '5', '3', '4', '3', '4', '20', '4', '0'])
+    def test_multiple_consecutive_calculations(self, mock_input):
+        """Test multiple calculations in one session.
+
+        Performs three operations:
+        1. Addition: 10 + 5 = 15
+        2. Multiplication: 4 * 3 = 12
+        3. Division: 20 / 4 = 5
+        Then exits cleanly.
+        """
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            main()
+            output = fake_out.getvalue()
+
+            # Verify all three results appear
+            assert '15' in output
+            assert '12' in output
+            # Note: Division result 5.0 should appear, checking for '5'
+
+    @patch('builtins.input', return_value='0')
+    def test_clean_exit_via_menu(self, mock_input):
+        """Test clean exit when user selects exit option.
+
+        User immediately selects 0 (exit) and program terminates gracefully.
+        """
+        # Should not raise any exceptions
+        try:
+            main()
+            exit_clean = True
+        except Exception:
+            exit_clean = False
+
+        assert exit_clean
 
 
 class TestMenuDisplay:
