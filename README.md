@@ -1,6 +1,6 @@
 # Calculator
 
-A command-line calculator application built in Python that performs accurate mathematical calculations with comprehensive input validation and error handling.
+A modern command-line calculator application built in Python with **Rich terminal UI** that performs accurate mathematical calculations with comprehensive input validation and error handling.
 
 ## Features
 
@@ -17,15 +17,17 @@ A command-line calculator application built in Python that performs accurate mat
 - **Modulus**: Find remainder of division
 
 ### User Experience
-- Menu-based interface (no complex expression parsing)
-- Comprehensive input validation
-- Clear error messages
-- Multiple calculations per session
-- Clean exit option
+- **Rich Terminal UI**: Beautiful colored interface with formatted menus and results
+- **Menu-based interface**: No complex expression parsing needed
+- **Comprehensive input validation**: Prevents invalid input with clear error messages
+- **Visual feedback**: Color-coded results (green for success, red for errors)
+- **Multiple calculations per session**: Continuous operation without restart
+- **Clean exit option**: Graceful shutdown
 
 ## Requirements
 
 - Python 3.8 or higher
+- Rich 13.0.0+ (for terminal UI)
 - pytest 7.0.0+ (for testing)
 - pytest-cov 4.0.0+ (for coverage reports)
 
@@ -64,20 +66,34 @@ python -m src.calculator
 ### Example Session
 
 ```
-==================================================
-         Welcome to Calculator
-==================================================
+╭─────────────── Welcome to Calculator ───────────────╮
+│  A modern command-line calculator with Rich UI      │
+│         Perform accurate calculations with style     │
+╰──────────────────────────────────────────────────────╯
 
-==================================================
-              Calculator Menu
-==================================================
-1. Addition
-2. Subtraction
-3. Multiplication
-4. Division
-5. Power
-6. Square Root
-7. Percentage
+╭───────────── Calculator Menu ─────────────╮
+│  1        Addition                         │
+│  2        Subtraction                      │
+│  3        Multiplication                   │
+│  4        Division                         │
+│  5        Power                            │
+│  6        Square Root                      │
+│  7        Percentage                       │
+│  8        Modulus                          │
+│                                            │
+│  0        Exit                             │
+╰────────────────────────────────────────────╯
+
+Enter your choice (0-8): 1
+Enter first number: 42
+Enter second number: 8
+
+✓ Result: 42.0 + 8.0 = 50.0
+
+[Menu displays again for next calculation...]
+```
+
+*Note: Actual output includes colors - green for results, red for errors, cyan for menus*
 8. Modulus
 0. Exit
 ==================================================

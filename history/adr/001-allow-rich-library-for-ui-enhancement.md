@@ -2,8 +2,9 @@
 
 > **Scope**: Amend dependency policy to allow Rich library for improved user interface while maintaining minimal dependency philosophy.
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-06-12
+- **Date Implemented:** 2026-06-12
 - **Feature:** 001-calculator
 - **Context:** Calculator UI Enhancement
 
