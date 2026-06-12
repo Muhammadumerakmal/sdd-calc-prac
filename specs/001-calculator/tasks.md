@@ -159,16 +159,16 @@
 
 **Purpose**: Improvements that affect multiple user stories and final quality checks
 
-- [ ] T050 [P] Create README.md with installation instructions, usage examples, and feature list
-- [ ] T051 [P] Add comprehensive docstrings to all functions in src/operations.py following Google style
-- [ ] T052 [P] Add comprehensive docstrings to all functions in src/validators.py following Google style
-- [ ] T053 [P] Add comprehensive docstrings to all functions in src/calculator.py following Google style
-- [ ] T054 Run pytest --cov=src --cov-report=term-missing and verify >90% coverage
-- [ ] T055 Run full test suite with pytest -v and verify all tests pass
-- [ ] T056 Manual integration test following specs/001-calculator/quickstart.md validation scenarios
-- [ ] T057 Code review against .specify/memory/constitution.md principles (PEP 8, naming, simplicity, security)
-- [ ] T058 Verify all 18 functional requirements from spec.md are implemented
-- [ ] T059 Final smoke test: perform all 8 operations successfully in one session
+- [x] T050 [P] Create README.md with installation instructions, usage examples, and feature list
+- [x] T051 [P] Add comprehensive docstrings to all functions in src/operations.py following Google style
+- [x] T052 [P] Add comprehensive docstrings to all functions in src/validators.py following Google style
+- [x] T053 [P] Add comprehensive docstrings to all functions in src/calculator.py following Google style
+- [x] T054 Run pytest --cov=src --cov-report=term-missing and verify >90% coverage
+- [x] T055 Run full test suite with pytest -v and verify all tests pass
+- [x] T056 Manual integration test following specs/001-calculator/quickstart.md validation scenarios
+- [x] T057 Code review against .specify/memory/constitution.md principles (PEP 8, naming, simplicity, security)
+- [x] T058 Verify all 18 functional requirements from spec.md are implemented
+- [x] T059 Final smoke test: perform all 8 operations successfully in one session
 
 ---
 

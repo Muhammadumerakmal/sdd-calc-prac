@@ -61,6 +61,60 @@ class TestCalculatorWorkflow:
 
         assert exit_clean
 
+    @patch('builtins.input', side_effect=['2', '10', '3', '0'])
+    def test_subtraction_operation(self, mock_input):
+        """Test subtraction operation workflow."""
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            main()
+            output = fake_out.getvalue()
+            # 10 - 3 = 7
+            assert '7' in output
+
+    @patch('builtins.input', side_effect=['5', '2', '3', '0'])
+    def test_power_operation(self, mock_input):
+        """Test power operation workflow."""
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            main()
+            output = fake_out.getvalue()
+            # 2 ^ 3 = 8
+            assert '8' in output
+
+    @patch('builtins.input', side_effect=['6', '16', '0'])
+    def test_square_root_operation(self, mock_input):
+        """Test square root operation workflow."""
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            main()
+            output = fake_out.getvalue()
+            # sqrt(16) = 4
+            assert '4' in output
+
+    @patch('builtins.input', side_effect=['7', '20', '50', '0'])
+    def test_percentage_operation(self, mock_input):
+        """Test percentage operation workflow."""
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            main()
+            output = fake_out.getvalue()
+            # 20% of 50 = 10
+            assert '10' in output
+
+    @patch('builtins.input', side_effect=['8', '17', '5', '0'])
+    def test_modulus_operation(self, mock_input):
+        """Test modulus operation workflow."""
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            main()
+            output = fake_out.getvalue()
+            # 17 mod 5 = 2
+            assert '2' in output
+
+    @patch('builtins.input', side_effect=['6', '-9', '0'])
+    def test_square_root_negative_error(self, mock_input):
+        """Test square root error handling for negative numbers."""
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            main()
+            output = fake_out.getvalue()
+            # Should contain error message
+            assert 'Error' in output or 'error' in output
+
 
 class TestMenuDisplay:
     """Test menu display functionality."""
